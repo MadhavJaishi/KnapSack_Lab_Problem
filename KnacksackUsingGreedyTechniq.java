@@ -108,7 +108,6 @@ class KnacksackUsingGreedyTechniq
         {
             System.out.print(p_w[i] + "  ");
         }
-        double fractionItem = 0;
         int k = 0;
         double sum = 0;
         System.out.println();
@@ -121,22 +120,15 @@ class KnacksackUsingGreedyTechniq
             }
             else
             {
-                double x4 = m * profit[k];
-                double x5 = weight[k];
-                fractionItem = m / x5;
-                double x6 = x4 / x5;
-                sum = sum + x6;
+                double temp = (m * profit[k]) / weight[k];
+                sum = sum + temp;
                 m = 0;
             }
+            selectedItems[k] = itemno[k];
             k++;
         }
         System.out.println("Final Profit is=" + sum);
         System.out.println("Items considered are: ");
-        int l;
-        for (l = 0; l < k - 1; l++) {
-            System.out.print(itemno[l] + " ");
-        }
-        fractionItem = (float) fractionItem;
-        System.out.print(fractionItem + "of" + itemno[l]);
+        System.out.print(selectedItems);
     }
 }
